@@ -75,8 +75,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                         <td><?= $x['name'] ?></td>
                         <td><?= $x['create_date'] ?></td>
                         <td><?= $x['update_date'] ?></td>
-
-
                         <td class="delete"><a class="deleteF" data-id="<?= $x["id"] ?>">✘</a></td>
                         <td class="update"><a href="updatefield.php?id=<?= $x['id'] ?>&name=<?= $x['name'] ?>">↻</a>
                         </td>

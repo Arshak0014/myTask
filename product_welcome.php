@@ -10,7 +10,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
     $result_cat = $category_result->fetchAll(PDO::FETCH_ASSOC);
 
 
-    $model_result = $connection->prepare("SELECT id,name, count(name) c FROM models group by name having c = 1 ORDER BY id DESC");
+    $model_result = $connection->prepare("SELECT id,name FROM models");
     $model_result->execute();
     $result_mod = $model_result->fetchAll(PDO::FETCH_ASSOC);
 

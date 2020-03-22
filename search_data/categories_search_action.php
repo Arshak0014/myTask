@@ -28,14 +28,17 @@ if ($query->rowCount() > 0){
                 <tbody>";
 
     foreach ($result as $x){
+        $id =  $x["id"];
+        $name = $x["name"];
+
         $output .='
             <tr>
                 <th scope="row">'.$x['id'].'</th>
                 <td>'.$x['name'].'</td>              
                 <td>'.$x['create_date'].'</td>
                 <td>'.$x['update_date'].'</td>
-                <td class="delete" id="delete"><a class="deleteF">✘</a></td>
-                <td class="update"><a href="">↻</a></td>
+                <td class="delete" id="delete"><a class="deleteF" data-id='.$id.'>✘</a></td>
+                <td class="update"><a href="updatefield.php?id='.$id.'&name='.$name.'">↻</a></td>
             </tr>';
     }
     $output .= "</tbody>";

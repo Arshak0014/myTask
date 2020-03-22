@@ -33,6 +33,10 @@ if ($query->rowCount() > 0){
                 <tbody>";
 
     foreach ($result as $x){
+        $id =  $x["id"];
+        $name = $x["name"];
+        $category_id = $x["categories_id"];
+
         $output .='
             <tr>
                 <th scope="row">'.$x['id'].'</th>
@@ -40,8 +44,8 @@ if ($query->rowCount() > 0){
                 <td>'.$x['cat_name'].'</td>
                 <td>'.$x['create_date'].'</td>
                 <td>'.$x['update_date'].'</td>
-                <td class="delete" id="delete"><a class="deleteF">✘</a></td>
-                <td class="update"><a href="">↻</a></td>
+                <td class="delete" id="delete" ><a class="deleteF" data-id='.$id.'>✘</a></td>
+                <td class="update"><a href="updatefieldmodel.php?id='.$id.'&name='.$name.'&category_id='.$category_id.'">↻</a></td>
             </tr>';
     }
 $output .= "</tbody>";
@@ -49,4 +53,6 @@ $output .= "</tbody>";
     echo '<h4 style="padding: 10px; text-align: center">There is nothing to show</h4>';
 }
 echo $output;
+
+?>
 
