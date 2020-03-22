@@ -90,6 +90,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
             </table>
             <div class="mainPagi">
                 <div>
+                    <a style="color: #ffffff" class="shadowButton btn btn-success" href="model_welcome.php">CREATE A NEW
+                        MODEL</a>
+                </div>
+                <div id="pagination_cont">
                     <?php
                     if ($page > 1) {
                         echo '<a class="pagi" href="models_table.php?page=' . ($page - 1) . '">⏪</a>';
@@ -109,12 +113,8 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                     ?>
 
                 </div>
-                <div>
-                    <a style="color: #ffffff" class="shadowButton btn btn-success" href="model_welcome.php">CREATE A NEW
-                        MODEL</a>
-                </div>
             </div>
-            <br>
+
 
         </div>
     </div>
@@ -133,11 +133,27 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
             $('#search_text').keyup(function () {
                 let search = $(this).val();
                 $.ajax({
-                    url: 'search_action.php',
+                    url: 'search_data/models_search_action.php',
                     method: 'post',
                     data: {query:search},
                     success:function (response) {
                         $('#table_data').html(response);
+                    }
+                })
+            })
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#search_text').keyup(function () {
+                let search = $(this).val();
+                $.ajax({
+                    url: 'pagination_action.php',
+                    method: 'post',
+                    data: {query:search},
+                    success:function (response) {
+                        $('#pagination_cont').html(response);
                     }
                 })
             })

@@ -48,8 +48,16 @@ LEFT JOIN categories ON models.categories_id = categories.id)");
         <?php require_once 'leftMenu.php' ?>
 
         <div class="container mt-5">
-            <h1>Products table</h1>
-            <table class="mb-4 table table-bordered table-dark">
+
+            <div class="d-flex justify-content-between">
+                <h1>Products table</h1>
+                <div>
+                    <span class="search_ic">🔎</span>
+                    <input type="text" name="search" id="search_text" class="search_inp shadowButton" placeholder="Search...">
+                </div>
+            </div>
+
+            <table class="mb-4 table table-bordered table-dark" id="table_data">
                 <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -99,6 +107,10 @@ LEFT JOIN categories ON models.categories_id = categories.id)");
             </table>
             <div class="mainPagi">
                 <div>
+                    <a style="color: #ffffff" class="shadowButton btn btn-success" href="product_welcome.php">CREATE A
+                        NEW PRODUCT</a>
+                </div>
+                <div>
                     <?php
                     if ($page > 1) {
                         echo '<a class="pagi" href="products_table.php?page=' . ($page - 1) . '">⏪</a>';
@@ -117,10 +129,6 @@ LEFT JOIN categories ON models.categories_id = categories.id)");
                     }
                     ?>
                 </div>
-                <div>
-                    <a style="color: #ffffff" class="shadowButton btn btn-success" href="product_welcome.php">CREATE A
-                        NEW PRODUCT</a>
-                </div>
             </div>
             <br>
 
@@ -134,6 +142,22 @@ LEFT JOIN categories ON models.categories_id = categories.id)");
             if (conf) {
                 $(this).attr('href', 'beckend/delete_product.php?id=' + del_id);
             }
+        })
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#search_text').keyup(function () {
+                let search = $(this).val();
+                $.ajax({
+                    url: 'search_data/products_search_action.php',
+                    method: 'post',
+                    data: {query:search},
+                    success:function (response) {
+                        $('#table_data').html(response);
+                    }
+                })
+            })
         })
     </script>
     </body>

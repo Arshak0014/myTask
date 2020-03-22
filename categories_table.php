@@ -43,8 +43,15 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
         <?php require_once 'leftMenu.php' ?>
 
         <div class="container mt-5">
-            <h1>Categories table</h1>
-            <table class="mb-4 table table-bordered table-dark">
+            <div class="d-flex justify-content-between">
+                <h1>Categories table</h1>
+                <div>
+                    <span class="search_ic">🔎</span>
+                    <input type="text" name="search" id="search_text" class="search_inp shadowButton" placeholder="Search...">
+                </div>
+            </div>
+
+            <table class="mb-4 table table-bordered table-dark" id="table_data">
                 <thead>
                 <tr>
                     <th scope="col">id</th>
@@ -79,6 +86,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
             </table>
             <div class="mainPagi">
                 <div>
+                    <a style="color: #ffffff" class="shadowButton btn btn-success" href="categories_welcome.php">CREATE
+                        A NEW CATEGORY</a>
+                </div>
+                <div>
                     <?php
                     if ($page > 1) {
                         echo '<a class="pagi" href="categories_table.php?page=' . ($page - 1) . '">⏪</a>';
@@ -97,10 +108,6 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
                     }
                     ?>
                 </div>
-                <div>
-                    <a style="color: #ffffff" class="shadowButton btn btn-success" href="categories_welcome.php">CREATE
-                        A NEW CATEGORY</a>
-                </div>
             </div>
             <br>
         </div>
@@ -116,6 +123,22 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
             }
         })
 
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#search_text').keyup(function () {
+                let search = $(this).val();
+                $.ajax({
+                    url: 'search_data/categories_search_action.php',
+                    method: 'post',
+                    data: {query:search},
+                    success:function (response) {
+                        $('#table_data').html(response);
+                    }
+                })
+            })
+        })
     </script>
 
     </body>
