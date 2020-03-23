@@ -4,7 +4,9 @@
     <list default="true" id="6597c416-9cb0-4867-a959-bb7d29197398" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product_welcome.php" beforeDir="false" afterPath="$PROJECT_DIR$/product_welcome.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/models_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/products_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search_data/categories_search_action.php" beforeDir="false" afterPath="$PROJECT_DIR$/search_data/categories_search_action.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search_data/models_search_action.php" beforeDir="false" afterPath="$PROJECT_DIR$/search_data/models_search_action.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/search_data/products_search_action.php" beforeDir="false" afterPath="$PROJECT_DIR$/search_data/products_search_action.php" afterDir="false" />
@@ -34,7 +36,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../search_pagi" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -99,7 +101,10 @@
       <workItem from="1584780071433" duration="7710000" />
       <workItem from="1584812254198" duration="406000" />
       <workItem from="1584866895889" duration="2984000" />
-      <workItem from="1584871910979" duration="6450000" />
+      <workItem from="1584871910979" duration="7127000" />
+      <workItem from="1584894580410" duration="4223000" />
+      <workItem from="1584963955204" duration="8876000" />
+      <workItem from="1584987046782" duration="74000" />
     </task>
     <servers />
   </component>

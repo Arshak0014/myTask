@@ -8,7 +8,7 @@ if (isset($_POST['query'])){
 
     $query = $connection->prepare('SELECT models.*, categories.name AS cat_name FROM models
         LEFT JOIN categories ON models.categories_id = categories.id WHERE models.name LIKE ?');
-    $query->bindValue(1, "%$search%", PDO::PARAM_STR);
+    $query->bindValue(1, "$search%", PDO::PARAM_STR);
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
 }else{
@@ -19,7 +19,7 @@ if (isset($_POST['query'])){
 
 if ($query->rowCount() > 0){
 
-        $output = " <thead>
+    $output = " <thead>
                     <tr>
                         <th scope=\"col\">Id</th>
                         <th scope=\"col\">Name</th>
@@ -48,11 +48,10 @@ if ($query->rowCount() > 0){
                 <td class="update"><a href="updatefieldmodel.php?id='.$id.'&name='.$name.'&category_id='.$category_id.'">↻</a></td>
             </tr>';
     }
-$output .= "</tbody>";
+    $output .= "</tbody>";
 }else{
     echo '<h4 style="padding: 10px; text-align: center">There is nothing to show</h4>';
 }
 echo $output;
 
 ?>
-

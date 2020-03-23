@@ -101,7 +101,12 @@ if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
 
                     for ($i = 1; $i <= $number_of_pages; $i++) {
                         if ($number_of_pages > 1) {
-                            echo '<a class="pagi" href="models_table.php?page=' . $i . '">' . $i . '</a>';
+                            $cl = 'pagi';
+                            if ($page == $i){
+                                $cl = 'active';
+                            }
+                            echo '<a class='.$cl.' href="models_table.php?page=' . $i . '">' . $i . '</a>';
+
                         } else {
                             echo null;
                         }

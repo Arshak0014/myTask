@@ -7,7 +7,7 @@ if (isset($_POST['query'])){
     $search = $_POST['query'];
 
     $query = $connection->prepare('SELECT * FROM categories WHERE categories.name LIKE ?');
-    $query->bindValue(1, "%$search%", PDO::PARAM_STR);
+    $query->bindValue(1, "$search%", PDO::PARAM_STR);
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
 }else{

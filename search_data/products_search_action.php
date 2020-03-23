@@ -9,7 +9,7 @@ if (isset($_POST['query'])){
     $query = $connection->prepare('SELECT products.*, models.name AS mod_name, categories.name AS cat_name FROM ((products 
         LEFT JOIN models ON products.models_id = models.id)
         LEFT JOIN categories ON models.categories_id = categories.id)  WHERE products.name LIKE ?');
-    $query->bindValue(1, "%$search%", PDO::PARAM_STR);
+    $query->bindValue(1, "$search%", PDO::PARAM_STR);
     $query->execute();
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
 }else{
