@@ -13,8 +13,8 @@ if (isset($_COOKIE['username']) and isset($_COOKIE['cookie_key'])) {
     $stmt->execute();
 
 
-    setcookie('username', $username, time() - 1);
-    setcookie('cookie_key', $password, time() - 1);
+    setcookie('username', $username, time() - 3600);
+    setcookie('cookie_key', $password, time() - 3600);
 }
 
 header('location: ../login.php');
